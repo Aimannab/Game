@@ -39,7 +39,7 @@ public class Player extends GameObject{
 			
 			GameObject tempObject = handler.object.get(i);
 			
-			if(tempObject.getid() == ID.BasicEnemy) {					//temp object is now basic enemy
+			if(tempObject.getid() == ID.BasicEnemy || tempObject.getid() == ID.FastEnemy) {					//temp object is now basic enemy
 				if(getBounds().intersects(tempObject.getBounds())) {	//if player bounds intersect basic enemy bounds
 					//collision code
 					
