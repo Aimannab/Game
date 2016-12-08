@@ -17,7 +17,7 @@ public class Player extends GameObject{
 	}
 	
 	public Rectangle getBounds() {
-		return new Rectangle(x, y, 32, 32);
+		return new Rectangle((int)x, (int)y, 32, 32);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class Player extends GameObject{
 		x = Game.clamp(x, 0, Game.WIDTH -35);
 		y = Game.clamp(y, 0, Game.HEIGHT -61);
 		
-		handler.addObject(new Trail(x, y, ID.Trail, Color.white, 32, 32, 0.1f, handler));
+		handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 32, 32, 0.1f, handler));
 		
 		collision();
 	}
@@ -39,7 +39,7 @@ public class Player extends GameObject{
 			
 			GameObject tempObject = handler.object.get(i);
 			
-			if(tempObject.getid() == ID.BasicEnemy || tempObject.getid() == ID.FastEnemy) {					//temp object is now basic enemy
+			if(tempObject.getid() == ID.BasicEnemy || tempObject.getid() == ID.FastEnemy || tempObject.getid() == ID.SmartEnemy) {					//temp object is now basic enemy
 				if(getBounds().intersects(tempObject.getBounds())) {	//if player bounds intersect basic enemy bounds
 					//collision code
 					
@@ -53,7 +53,7 @@ public class Player extends GameObject{
 	public void render(Graphics g) {
 		
 		g.setColor(Color.white);
-		g.fillRect(x, y, 32, 32);
+		g.fillRect((int)x, (int)y, 32, 32);
 		
 	}
 
